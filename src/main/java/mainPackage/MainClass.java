@@ -3,11 +3,13 @@ package mainPackage;
 import Java8.LamdaSample;
 import beanAndDomain.SampleBean;
 import beanAndDomain.SampleDomain;
+import beanAndDomain.TestObject;
 import com.google.common.collect.Lists;
 import java7_using_guava.GuavaSample;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Abhishek on 03/03/18.
@@ -24,6 +26,10 @@ public class MainClass {
 
         List<SampleBean> guavaOutput = GuavaSample.processByjava7(sampleDomains);
         List<SampleBean> lamdaOutput = LamdaSample.processByJava8(sampleDomains);
+        Set<SampleBean> sampleBeen = GuavaSample.processByUsingHashMultiSet(sampleDomains);
+
+        List<TestObject> testObjectsFromlamda = LamdaSample.useOfAndThenInjava8(sampleDomains);
+        List<TestObject> testObjectsfromGuava = GuavaSample.useOfCompose(sampleDomains);
 
 
     }

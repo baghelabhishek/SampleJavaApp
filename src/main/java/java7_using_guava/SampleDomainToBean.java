@@ -7,7 +7,7 @@ import com.google.common.base.Function;
 /**
  * Created by Abhishek on 03/03/18.
  */
- class Functionable implements Function<SampleDomain, SampleBean> {
+ class SampleDomainToBean implements Function<SampleDomain, SampleBean> {
 
     @Override
     public SampleBean apply(SampleDomain sampleDomain) {
