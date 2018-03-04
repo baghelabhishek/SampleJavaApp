@@ -4,10 +4,7 @@ import beanAndDomain.SampleBean;
 import beanAndDomain.SampleDomain;
 import beanAndDomain.TestObject;
 import com.google.common.base.Functions;
-import com.google.common.collect.FluentIterable;
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
+import com.google.common.collect.*;
 
 import java.util.List;
 import java.util.Set;
@@ -23,6 +20,15 @@ public class GuavaSample {
                 .transform(new SampleDomainToBean())
                 .toList();
     }
+
+    public static ImmutableList<List<SampleDomain>>  useOfConstant(List<SampleDomain> sampleDomains){
+        return FluentIterable.from(sampleDomains)
+                .filter(new Predictable())
+                .transform(Functions.constant(sampleDomains))
+                .toList();
+    }
+
+
 
     public static List<TestObject> useOfCompose(List<SampleDomain> sampleDomains){
         return Lists.transform(sampleDomains,

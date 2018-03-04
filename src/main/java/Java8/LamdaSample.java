@@ -32,6 +32,13 @@ public class LamdaSample {
                 .collect(Collectors.toList());
     }
 
+    public static List<SampleDomain> useOfIdentityFunction(List<SampleDomain> sampleDomains){
+        return sampleDomains.stream()
+                .filter(e -> e.getId() > 3)
+                .map(Function.identity())
+                .collect(Collectors.toList());
+    }
+
     private static Function<SampleBean, TestObject> mapSampleBeanToTestObject() {
         return e-> {
             TestObject object = new TestObject();

@@ -4,6 +4,7 @@ import Java8.LamdaSample;
 import beanAndDomain.SampleBean;
 import beanAndDomain.SampleDomain;
 import beanAndDomain.TestObject;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import java7_using_guava.GuavaSample;
 
@@ -14,7 +15,7 @@ import java.util.Set;
 /**
  * Created by Abhishek on 03/03/18.
  */
-public class MainClass {
+public class FunctionalMainClass {
 
     public static void main(String[] args) {
         SampleDomain domain1 = buildSampleDomainWithId(10L);
@@ -31,16 +32,19 @@ public class MainClass {
         List<TestObject> testObjectsFromlamda = LamdaSample.useOfAndThenInjava8(sampleDomains);
         List<TestObject> testObjectsfromGuava = GuavaSample.useOfCompose(sampleDomains);
 
+        List<SampleDomain> sampleDomainsFromLamda = LamdaSample.useOfIdentityFunction(sampleDomains);
+        ImmutableList<List<SampleDomain>> listImmutableList = GuavaSample.useOfConstant(sampleDomains);
+
 
     }
 
     private static SampleDomain buildSampleDomainWithId(long id) {
-        SampleDomain domain1 = new SampleDomain();
-        domain1.setId(id);
-        domain1.setName("Domain1_Name");
-        domain1.setProperty1("property1");
-        domain1.setProperty2("property2");
-        domain1.setProperty3("property3");
-        return domain1;
+        SampleDomain sampleDomain = new SampleDomain();
+        sampleDomain.setId(id);
+        sampleDomain.setName("Domain1_Name");
+        sampleDomain.setProperty1("property1");
+        sampleDomain.setProperty2("property2");
+        sampleDomain.setProperty3("property3");
+        return sampleDomain;
     }
 }
